@@ -1,0 +1,141 @@
+/* Navigation Bar styles mapped from Figma Navigation Bar component set
+   Variants: Color=On Black | On White; Function=Default | Title
+*/
+
+
+.navBar {
+  height: 95px; /* total container height per Figma */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* layout_O54NEG gap */
+  padding: 16px 20px; /* layout_O54NEG padding */
+  box-sizing: border-box;
+  background: var(--nav-bg);
+  color: var(--text-color);
+}
+
+.navBar.black {
+  --nav-bg: #000000; /* fill_6WZ0SM */
+  --text-color: #ffffff;
+  --pill-bg: rgba(255, 255, 255, 0.15); /* fill_J2KD70 */
+  --muted-pill-bg: rgba(255, 255, 255, 0.15);
+}
+
+.navBar.white {
+  --nav-bg: #ffffff; /* fill_ONT6OF */
+  --text-color: #000000;
+  --pill-bg: rgba(0, 0, 0, 0.05); /* fill_RKG7R8 */
+  --muted-pill-bg: rgba(0, 0, 0, 0.05);
+}
+
+/* Status bar (iPhone) */
+.statusBar {
+  display: flex; /* layout_JDX6WR */
+  justify-content: space-between; /* layout_JDX6WR */
+  align-items: center; /* layout_JDX6WR */
+  gap: 205px; /* layout_JDX6WR */
+  padding: 18px 26px 14px 27px; /* layout_JDX6WR */
+  box-sizing: border-box;
+}
+.statusLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.statusRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.statusTime {
+  font-weight: 700; /* Default/Body/Bold */
+}
+
+/* MP bar (below status bar) */
+.mpBar {
+  display: grid; /* three regions: logo | center | actions */
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 38px; /* layout_Q0N8HG */
+  padding: 0 26px; /* keep inline with status bar horizontal inset */
+  box-sizing: border-box;
+}
+
+.logoArea {
+  width: 42px; /* layout_UACCO2 */
+  height: 30px; /* layout_UACCO2 */
+  display: flex;
+  align-items: center;
+}
+.logoArea img {
+  height: 100%;
+  width: auto;
+}
+
+.centerArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Title selector (Frame 2) */
+.titleSelect {
+  display: inline-flex; /* layout_DRVSWF */
+  align-items: center;
+  gap: 8px;
+  background: var(--pill-bg);
+  border-radius: 20px; /* borderRadius: 20px */
+  padding: 6px 10px; /* approx of Figma 5px 9px with font metrics */
+  color: var(--text-color);
+  user-select: none;
+}
+.titleText {
+  font-weight: 400; /* Title 400 EN */
+}
+.chevronIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Actions pill (right) */
+.actionsArea {
+  display: flex; /* layout_XVJXJ2 */
+  justify-content: flex-end; /* layout_XVJXJ2 */
+  align-items: center; /* layout_XVJXJ2 */
+  gap: 6px; /* layout_XVJXJ2 */
+  background: var(--pill-bg); /* fill_J2KD70 or fill_RKG7R8 */
+  border-radius: 16px; /* borderRadius: 16px */
+  padding: 5px 9px; /* layout_XVJXJ2 */
+}
+.actionIcon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+}
+.actionIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Title variant center (layout_9YBNVI) */
+.titleCenter {
+  display: flex; /* layout_9YBNVI */
+  justify-content: center; /* layout_9YBNVI */
+  align-items: center; /* layout_9YBNVI */
+  gap: 10px; /* layout_9YBNVI */
+  padding: 0 154px; /* layout_9YBNVI */
+}
+
+/* Responsive tweaks (safe) */
+@media (max-width: 420px) {
+  .navBar { gap: 12px; padding: 12px 16px; }
+  .statusBar { gap: 24px; padding: 12px 16px; }
+  .mpBar { padding: 0 16px; }
+  .titleCenter { padding: 0 80px; }
+}
+
+/* Accessibility tweaks */
+@media (prefers-reduced-motion: reduce) {
+  .titleSelect, .actionsArea { transition: none; }
+}

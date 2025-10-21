@@ -2,20 +2,20 @@ export const meta = { category: "Navigation" }
 
 # Drawer (Blueprint)
 
-基于 Figma 节点 `308:55` 的 Drawer 原型样式复刻，布局、尺寸、间距、字体与颜色严格对齐 Figma：
-- 尺寸：宽 `375px`，顶部圆角 `16px 16px 0 0`
-- 布局：容器竖排，`gap: 8px`，`padding: 16px 0 40px`
-- 标题：`Fira Sans 20/Bold`，文字颜色 `#000000`
-- 列表项：`Fira Sans 18/Regular`，选中态背景 `#F3F3F3`
-- 图标：尺寸 `24×24`，位置左侧（使用 Plus 图标拟合 Figma Icon/Add）
+Blueprint Drawer recreated based on Figma node `308:55`, with layout, size, spacing, typography, and colors strictly aligned to Figma:
+- Size: width `375px`, top border radius `16px 16px 0 0`
+- Layout: vertical stack, `gap: 8px`, `padding: 16px 0 40px`
+- Title: `Fira Sans 20/Bold`, text color `#000000`
+- List item: `Fira Sans 18/Regular`, selected background `#F3F3F3`
+- Icon: `24×24` on the left (uses `Plus` to approximate Figma `Icon/Add`)
 
-## 预览
+## Preview
 
-<Demo title="Figma Parity Preview" description="与 Figma Drawer (Blueprint) 保持视觉一致">
+<Demo title="Figma Parity Preview" description="Visual parity with Figma Drawer (Blueprint)">
   <DrawerBlueprint />
 </Demo>
 
-## 用法
+## Usage
 
 ```tsx
 import DrawerBlueprint from "@/content/demos/Navigation/DrawerBlueprint"
@@ -25,8 +25,8 @@ export default function Page() {
 }
 ```
 
-## 说明
+## Notes
 
-- 字体使用 `Fira Sans`，已通过 CSS 引入；如需线下环境完全一致，请确保字体可用。
-- 图标使用 `lucide-react` 的 `Plus` 近似 Figma 的 `Icon/Add`；若需像素级一致，可替换为 Figma 导出的 SVG。
-- 该组件为演示静态结构（Blueprint），不包含交互行为（开关、动画、遮罩点击关闭等）。如需完整交互版本，可在此基础上扩展。
+- Typography uses `Fira Sans` via CSS; ensure the font is available for offline parity.
+- Icon uses `lucide-react` `Plus` to approximate Figma `Icon/Add`; for pixel-perfect parity, replace with the SVG exported from Figma.
+- This component demonstrates a static structure (Blueprint) and does not include interactions (toggle, animations, backdrop click-to-close, etc.). Extend from this baseline for a fully interactive version.

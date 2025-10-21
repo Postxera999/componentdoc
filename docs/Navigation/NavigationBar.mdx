@@ -1,0 +1,47 @@
+export const meta = {
+  category: 'Navigation',
+}
+
+The Navigation Bar is used at the top of the page to show brand identity, the current page title or selector, and common actions (share, go home, etc.). This component mirrors the Figma design and provides two color themes (Black/White) and two functional variants (Default/Title).
+
+## When to Use
+
+- The top bar needs both a Status Bar and a Function Bar layout
+- Show the current page title and support a dropdown to switch pages or groups
+- Provide common actions on the right (e.g., Share, Home)
+- Aim for an iOS-like visual and spacing system on mobile
+
+## Preview
+
+<Demo>
+  <NavigationBar />
+</Demo>
+
+> The preview supports switching color (Black/White) and variant (Default/Title), and includes demo handlers for Logo click, Title click, Share, and Home.
+
+## Design Parity
+
+- Color themes: `On Black` and `On White`, matching dark/light backgrounds; text and icon colors invert with the theme
+- Status Bar: follows Figma spacing and layout (time on the left, status icons on the right); status visuals are simplified for web compatibility
+- Function Bar (MP bar): three-part layout (left Logo, center title selector, right actions) with spacing, radii, and sizes mapped from the design
+- Title selector: pill with radius `20px`, theme-tinted background, `Chevron Down` icon `24×24`
+- Actions area: radius `16px`, inner button size `18×18`, spacing and padding match Figma
+
+## Interactions
+
+- `Logo`: triggers `onLogoClick`
+- `Title`: triggers `onTitleClick`; centered in the `title` variant
+- `Share`: triggers `onShare`
+- `Home`: triggers `onHome`
+
+## Styling (CSS Modules)
+
+- Stylesheet: `css/navigation-bar.module.css`
+- Key variables: `--nav-bg`, `--text-color`, `--pill-bg`
+- Responsive: tighter spacing and padding on narrow screens to preserve density and usability
+- Accessibility: reduce motion disables transitions; semantic `aria-label` and `aria-haspopup` annotations
+
+## Icons
+
+- All icons are Figma-exported SVGs: `/public/icons/chevron-down.svg`, `/public/icons/icon-share.svg`, `/public/icons/icon-home.svg`, `/public/icons/logo.svg`
+- Maintain design-consistent sizes and padding; avoid extra compression or style migration

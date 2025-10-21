@@ -5,75 +5,73 @@ export const meta = {
   category: 'Navigation',
 }
 
-抽屉组件用于展示侧边或底部滑出的面板，通常包含一组操作或导航项。
+The Drawer component displays a panel sliding in from the side or bottom, often containing actions or navigation items.
 
-## 何时使用
+## When to Use
 
-- 需要在不离开当前页面的情况下展示额外信息或操作
-- 用于展示导航菜单、筛选选项或设置面板
-- 需要临时性的内容展示，不影响主要内容区域
+- Show additional information or actions without leaving the current page
+- Use for navigation menus, filter options, or settings panels
+- Temporary content that should not disrupt the main content area
 
-## Drawer 容器
+## Drawer Container
 
-Drawer 容器定义了抽屉的整体结构和布局，包含两种模式：
+The Drawer container defines the overall structure and layout, with two modes:
 
-### Default 模式
+### Default Mode
 
 <Demo>
   <Drawer />
 </Demo>
 
-
 <Demo>
   <Demo123 />
 </Demo>
 
+# ⚙️ Drawer Component
 
-# ⚙️ Drawer 抽屉组件
-
-**版本:** `v1.2.0` | **状态:** 稳定 (Stable) | **作者:** AI Assistant
+**Version:** `v1.2.0` | **Status:** Stable | **Author:** AI Assistant
 
 ---
 
-## 📖 概览 (Overview)
+## 📖 Overview
 
-`Drawer` 组件是一个覆盖在内容区域上方，从屏幕边缘滑入的面板。它常用于导航、筛选或显示次要信息。与 Modal（模态框）不同，Drawer 通常占据屏幕的一侧，并保留背景内容的部分可见性。
+`Drawer` is a panel that overlays the content area and slides in from the edge of the screen. It is commonly used for navigation, filtering, or displaying secondary information. Unlike a Modal, a Drawer typically occupies one side of the screen while keeping the background content partially visible.
 
-### 📌 设计原则
+### 📌 Design Principles
 
-* **辅助性 (Accessibility)**: 必须支持键盘焦点管理和 WAI-ARIA 规范。
-* **灵活性 (Flexibility)**: 支持从左、右、上、下四个方向弹出。
+* **Accessibility:** Must support keyboard focus management and WAI-ARIA best practices.
+* **Flexibility:** Supports sliding from left, right, top, and bottom.
 
-## 🛠️ API 参考
+## 🛠️ API Reference
 
-### 1. 组件属性 (`Props`)
+### 1. Props
 
-| 属性名 | 类型 | 默认值 | 描述 | 是否必填 |
+| Prop | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :---: |
-| `isOpen` | `boolean` | `false` | 控制抽屉的显示/隐藏状态。 | ✅ 是 |
-| `direction` | `'left' \| 'right' \| 'top' \| 'bottom'` | `'right'` | 抽屉弹出的方向。 | ❌ 否 |
-| `onClose` | `() => void` | `() => {}` | 抽屉关闭时触发的回调函数。 | ✅ 是 |
-| `size` | `number \| string` | `'300px'` | 抽屉的宽度 (水平方向) 或高度 (垂直方向)。 | ❌ 否 |
-| `children` | `ReactNode` | N/A | 抽屉内部要渲染的内容。 | ✅ 是 |
+| `isOpen` | `boolean` | `false` | Controls the visibility of the drawer. | ✅ Yes |
+| `direction` | `'left' \| 'right' \| 'top' \| 'bottom'` | `'right'` | The direction the drawer slides from. | ❌ No |
+| `onClose` | `() => void` | `() => {}` | Callback fired when the drawer closes. | ✅ Yes |
+| `size` | `number \| string` | `'300px'` | Width (for horizontal) or height (for vertical) of the drawer. | ❌ No |
+| `children` | `ReactNode` | N/A | Content to render inside the drawer. | ✅ Yes |
 
-> **注意：** 当 `direction` 为 `'left'` 或 `'right'` 时，`size` 影响宽度；为 `'top'` 或 `'bottom'` 时，`size` 影响高度。
+> **Note:** When `direction` is `'left'` or `'right'`, `size` controls width; when `'top'` or `'bottom'`, `size` controls height.
 
-### 2. 核心方法 (Methods)
+### 2. Methods
 
-| 方法名 | 参数 | 返回值 | 描述 |
+| Method | Params | Returns | Description |
 | :--- | :--- | :--- | :--- |
-| `open()` | 无 | `void` | **命令式** 打开抽屉。*(仅在非受控模式下可用)* |
-| `close()` | 无 | `void` | **命令式** 关闭抽屉。*(仅在非受控模式下可用)* |
+| `open()` | none | `void` | Imperatively opens the drawer. *(only available in uncontrolled mode)* |
+| `close()` | none | `void` | Imperatively closes the drawer. *(only available in uncontrolled mode)* |
 
 ---
 
-## 💡 使用示例 (Usage Examples)
+## 💡 Usage Examples
 
-使用 Drawer 组件非常简单。你需要控制其 `isOpen` 状态和提供 `onClose` 处理函数。
+Using the Drawer is straightforward: control its `isOpen` state and provide `onClose`.
 
-### 1. 基础用法
+### 1. Basic Usage
 
-这是一个从右侧弹出的基本抽屉：
+This example shows a drawer sliding in from the right:
 
 ```jsx
 import { useState } from 'react';
@@ -84,7 +82,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>打开右侧抽屉</button>
+      <button onClick={() => setOpen(true)}>Open right drawer</button>
 
       <Drawer
         isOpen={open}
@@ -92,14 +90,15 @@ function App() {
         direction="right"
         size="40vw"
       >
-        <h1>👋 欢迎使用 Drawer!</h1>
-        <p>这是抽屉内部的主要内容。</p>
+        <h1>👋 Welcome to Drawer!</h1>
+        <p>This is the main content inside the drawer.</p>
         <ul>
-          <li>列表项 A</li>
-          <li>列表项 B</li>
+          <li>List item A</li>
+          <li>List item B</li>
         </ul>
-        <button onClick={() => setOpen(false)}>关闭</button>
+        <button onClick={() => setOpen(false)}>Close</button>
       </Drawer>
     </>
   );
 }
+```
