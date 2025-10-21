@@ -1,0 +1,297 @@
+/* 导入 Fira Sans 字体 */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap');
+
+/* CSS 变量定义 */
+.vars {
+  /* 颜色变量 - 基于 Figma 的全局样式 */
+  --color-primary: #000000;
+  --color-primary-05: #F3F3F3;
+  --color-primary-50: #808080;
+  --color-primary-80: #424343;
+  --color-primary-95: #131414;
+  --color-background: #FFFFFF;
+  
+  /* 字体变量 */
+  --font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --line-height-12: 1.2;
+  
+  /* 间距变量 */
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  
+  /* 圆角变量 */
+  --border-radius-25: 25px;
+  --border-radius-100: 100px;
+  --border-radius-5: 5px;
+}
+
+/* 容器样式 */
+.container {
+  font-family: var(--font-family);
+  background: var(--color-background);
+  padding: var(--spacing-24);
+  min-height: 100vh;
+}
+
+/* 章节样式 */
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-12);
+  color: var(--color-primary-80);
+  margin-bottom: var(--spacing-16);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 按钮组样式 */
+.buttonGroup {
+  margin-bottom: var(--spacing-24);
+}
+
+.groupTitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-12);
+  color: var(--color-primary-80);
+  margin-bottom: var(--spacing-8);
+}
+
+.buttonRow {
+  display: flex;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-8);
+  align-items: center;
+}
+
+/* 基础按钮样式 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--border-radius-25);
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-size-14);
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  min-height: 36px;
+  white-space: nowrap;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary-50);
+  outline-offset: 2px;
+}
+
+/* Primary 按钮变体 */
+.buttonPrimary {
+  background: var(--color-primary-95);
+  color: var(--color-background);
+}
+
+.buttonPrimary:hover:not(:disabled) {
+  background: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.buttonPrimary.buttonActive {
+  background: var(--color-background);
+  color: var(--color-primary-95);
+  border: 1px solid var(--color-primary-95);
+}
+
+.buttonPrimary.buttonDisabled {
+  background: var(--color-primary-95);
+  color: var(--color-background);
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Secondary 按钮变体 */
+.buttonSecondary {
+  background: var(--color-background);
+  color: var(--color-primary-80);
+  border: 1px solid var(--color-primary-50);
+}
+
+.buttonSecondary:hover:not(:disabled) {
+  border-color: var(--color-primary-95);
+  color: var(--color-primary-95);
+  transform: translateY(-1px);
+}
+
+.buttonSecondary.buttonActive {
+  background: var(--color-background);
+  color: var(--color-primary-95);
+  border: 1px solid var(--color-primary-95);
+}
+
+.buttonSecondary.buttonDisabled {
+  background: var(--color-background);
+  color: var(--color-primary-80);
+  border: 1px solid var(--color-primary-50);
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* 带图标的按钮 */
+.buttonWithIcon {
+  padding-right: var(--spacing-12);
+}
+
+/* 图标样式 */
+.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* 图标按钮组样式 */
+.iconButtonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.iconButtonRow {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: center;
+}
+
+/* 基础图标按钮样式 */
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-100);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--color-primary-50);
+  outline-offset: 2px;
+}
+
+/* Primary 图标按钮变体 */
+.iconButtonPrimary {
+  background: var(--color-primary-95);
+}
+
+.iconButtonPrimary:hover:not(:disabled) {
+  background: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.iconButtonPrimary.iconButtonActive {
+  background: var(--color-primary-05);
+}
+
+.iconButtonPrimary.iconButtonDisabled {
+  background: var(--color-primary-95);
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Secondary 图标按钮变体 */
+.iconButtonSecondary {
+  background: var(--color-primary-95);
+}
+
+.iconButtonSecondary:hover:not(:disabled) {
+  background: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.iconButtonSecondary.iconButtonActive {
+  background: var(--color-background);
+  border: 1px solid var(--color-primary-95);
+}
+
+.iconButtonSecondary.iconButtonDisabled {
+  background: var(--color-primary);
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Tertiary 图标按钮变体 */
+.iconButtonTertiary {
+  background: var(--color-background);
+  border: 1px solid var(--color-primary-50);
+}
+
+.iconButtonTertiary:hover:not(:disabled) {
+  border-color: var(--color-primary-95);
+  transform: translateY(-1px);
+}
+
+.iconButtonTertiary.iconButtonActive {
+  background: var(--color-background);
+  border: 1px solid var(--color-primary-95);
+}
+
+.iconButtonTertiary.iconButtonDisabled {
+  background: var(--color-background);
+  border: 1px solid var(--color-primary-50);
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-16);
+  }
+  
+  .buttonRow,
+  .iconButtonRow {
+    flex-wrap: wrap;
+    gap: var(--spacing-8);
+  }
+  
+  .button {
+    min-width: 80px;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .button,
+  .iconButton {
+    border: 2px solid currentColor;
+  }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .iconButton {
+    transition: none;
+  }
+  
+  .button:hover:not(:disabled),
+  .iconButton:hover:not(:disabled) {
+    transform: none;
+  }
+}

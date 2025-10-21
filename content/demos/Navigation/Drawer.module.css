@@ -1,0 +1,47 @@
+/* Scoped styles for Drawer demo component */
+
+.container {
+  width: 20rem; /* w-80 */
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 0.5rem);
+  padding: 1rem; /* p-4 */
+}
+
+.title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* space-y-1 */
+}
+
+.item {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  border-radius: 0.375rem; /* rounded-md */
+  transition: background-color 150ms ease-in-out;
+  background: transparent;
+  color: inherit;
+}
+
+.item:hover {
+  background: var(--accent);
+}
+
+.itemActive {
+  background: var(--accent);
+}
+
+.footer {
+  margin-top: 1rem; /* mt-4 */
+}
+
+.fullWidth {
+  width: 100%;
+}

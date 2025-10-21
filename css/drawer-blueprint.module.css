@@ -1,0 +1,88 @@
+/* Figma: Drawer (Blueprint) - node 308:55 */
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap");
+
+/* Scoped CSS variables via local class to satisfy CSS Modules purity */
+.vars {
+  --fig-primary: #131414; /* primary */
+  --fig-primary-a-20: rgba(19,20,20,0.2); /* overlay */
+  --fig-bg: #FFFFFF; /* background */
+  --fig-selected: #F3F3F3; /* primary-05 */
+}
+
+.overlay {
+  /* Optional overlay to mirror the blueprint background */
+  background: var(--fig-primary-a-20);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 812px; /* matches layout_EZQCOF frame height */
+}
+
+.drawer {
+  width: 375px; /* layout_GA87FO width */
+  background: var(--fig-bg);
+  border-radius: 16px 16px 0 0; /* borderRadius: 16 16 0 0 */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* layout_GA87FO gap */
+  padding: 16px 0 40px; /* layout_GA87FO padding */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.02); /* subtle edge (not in figma, optional) */
+  font-family: "Fira Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.sectionTitleRow {
+  display: flex; /* layout_2J0N50 mode: row */
+  align-items: center; /* alignItems: center */
+  gap: 10px; /* gap: 10px */
+  padding: 24px 24px 8px; /* padding: 24 24 8 */
+}
+
+.sectionTitle {
+  font-size: 20px; /* 20/Bold */
+  font-weight: 700; /* 20/Bold */
+  line-height: 1.2; /* 20/Bold lineHeight */
+  color: #000000; /* fill_LDUZQQ */
+  margin: 0;
+}
+
+.itemRow {
+  display: flex; /* layout_AJGQDY mode: row */
+  justify-content: center; /* justifyContent: center */
+  align-items: center; /* alignItems: center */
+  align-self: stretch; /* alignSelf: stretch */
+  gap: 12px; /* gap: 12 */
+  padding: 16px 24px; /* padding: 16 24 */
+  background: var(--fig-bg); /* background */
+}
+
+.itemSelected {
+  background: var(--fig-selected); /* primary-05 */
+}
+
+.iconWrap {
+  width: 24px; /* dimensions: 24 */
+  height: 24px; /* dimensions: 24 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--fig-primary); /* use primary color for visibility */
+}
+
+.itemText {
+  flex: 1; /* layout_48JWQ8 horizontal fill */
+  font-size: 18px; /* 18/Regular */
+  line-height: 1.2; /* 18/Regular lineHeight */
+  font-weight: 400; /* Regular */
+  color: var(--fig-primary); /* primary */
+}
+
+.itemTextBold {
+  font-weight: 700; /* 18/Bold */
+}

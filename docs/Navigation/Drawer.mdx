@@ -1,0 +1,105 @@
+import { ChevronRight } from "lucide-react"
+import { Plus } from "lucide-react"
+
+export const meta = {
+  category: 'Navigation',
+}
+
+抽屉组件用于展示侧边或底部滑出的面板，通常包含一组操作或导航项。
+
+## 何时使用
+
+- 需要在不离开当前页面的情况下展示额外信息或操作
+- 用于展示导航菜单、筛选选项或设置面板
+- 需要临时性的内容展示，不影响主要内容区域
+
+## Drawer 容器
+
+Drawer 容器定义了抽屉的整体结构和布局，包含两种模式：
+
+### Default 模式
+
+<Demo>
+  <Drawer />
+</Demo>
+
+
+<Demo>
+  <Demo123 />
+</Demo>
+
+
+# ⚙️ Drawer 抽屉组件
+
+**版本:** `v1.2.0` | **状态:** 稳定 (Stable) | **作者:** AI Assistant
+
+---
+
+## 📖 概览 (Overview)
+
+`Drawer` 组件是一个覆盖在内容区域上方，从屏幕边缘滑入的面板。它常用于导航、筛选或显示次要信息。与 Modal（模态框）不同，Drawer 通常占据屏幕的一侧，并保留背景内容的部分可见性。
+
+### 📌 设计原则
+
+* **辅助性 (Accessibility)**: 必须支持键盘焦点管理和 WAI-ARIA 规范。
+* **灵活性 (Flexibility)**: 支持从左、右、上、下四个方向弹出。
+
+## 🛠️ API 参考
+
+### 1. 组件属性 (`Props`)
+
+| 属性名 | 类型 | 默认值 | 描述 | 是否必填 |
+| :--- | :--- | :--- | :--- | :---: |
+| `isOpen` | `boolean` | `false` | 控制抽屉的显示/隐藏状态。 | ✅ 是 |
+| `direction` | `'left' \| 'right' \| 'top' \| 'bottom'` | `'right'` | 抽屉弹出的方向。 | ❌ 否 |
+| `onClose` | `() => void` | `() => {}` | 抽屉关闭时触发的回调函数。 | ✅ 是 |
+| `size` | `number \| string` | `'300px'` | 抽屉的宽度 (水平方向) 或高度 (垂直方向)。 | ❌ 否 |
+| `children` | `ReactNode` | N/A | 抽屉内部要渲染的内容。 | ✅ 是 |
+
+> **注意：** 当 `direction` 为 `'left'` 或 `'right'` 时，`size` 影响宽度；为 `'top'` 或 `'bottom'` 时，`size` 影响高度。
+
+### 2. 核心方法 (Methods)
+
+| 方法名 | 参数 | 返回值 | 描述 |
+| :--- | :--- | :--- | :--- |
+| `open()` | 无 | `void` | **命令式** 打开抽屉。*(仅在非受控模式下可用)* |
+| `close()` | 无 | `void` | **命令式** 关闭抽屉。*(仅在非受控模式下可用)* |
+
+---
+
+## 💡 使用示例 (Usage Examples)
+
+使用 Drawer 组件非常简单。你需要控制其 `isOpen` 状态和提供 `onClose` 处理函数。
+
+### 1. 基础用法
+
+这是一个从右侧弹出的基本抽屉：
+
+```jsx
+import { useState } from 'react';
+import { Drawer } from '@my-ui/components';
+
+function App() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>打开右侧抽屉</button>
+
+      <Drawer
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        direction="right"
+        size="40vw"
+      >
+        <h1>👋 欢迎使用 Drawer!</h1>
+        <p>这是抽屉内部的主要内容。</p>
+        <ul>
+          <li>列表项 A</li>
+          <li>列表项 B</li>
+        </ul>
+        <button onClick={() => setOpen(false)}>关闭</button>
+      </Drawer>
+    </>
+  );
+}
