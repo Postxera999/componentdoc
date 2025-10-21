@@ -82,10 +82,10 @@ export default function NavigationBarDemo() {
   return (
     <div style={{ display: "grid", gap: 16 }}>
       <div style={{ display: "flex", gap: 8 }}>
-        <button onClick={() => setColor("black")}>黑色</button>
-        <button onClick={() => setColor("white")}>白色</button>
-        <button onClick={() => setVariant("default")}>默认</button>
-        <button onClick={() => setVariant("title")}>标题模式</button>
+        <button onClick={() => setColor("black")}>On Black</button>
+        <button onClick={() => setColor("white")}>On White</button>
+        <button onClick={() => setVariant("default")}>Title & Default</button>
+        <button onClick={() => setVariant("title")}>Title & On White</button>
       </div>
 
       <NavigationBar
